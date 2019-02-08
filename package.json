@@ -5,6 +5,7 @@
   "dependencies": {
     "d3": "^5.9.0",
     "d3-color": "^1.2.3",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-scripts": "2.1.3",
@@ -27,5 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage" : "https://via-asii.github.io/cia-vis-colorpicker"
+  "homepage": "https://via-asii.github.io/cia-vis-colorpicker"
 }
