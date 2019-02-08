@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/cia-vis-colorpicker/static/js/runtime~main.e6b9c44a.js"
   },
   {
-    "revision": "5183c1f9d6909cb47538",
-    "url": "/cia-vis-colorpicker/static/js/main.5183c1f9.chunk.js"
+    "revision": "c8bdce8136e3f534e6ab",
+    "url": "/cia-vis-colorpicker/static/js/main.c8bdce81.chunk.js"
   },
   {
     "revision": "4d494fb8ed9091ae4c09",
     "url": "/cia-vis-colorpicker/static/js/1.4d494fb8.chunk.js"
   },
   {
-    "revision": "5183c1f9d6909cb47538",
+    "revision": "c8bdce8136e3f534e6ab",
     "url": "/cia-vis-colorpicker/static/css/main.eade3932.chunk.css"
   },
   {
-    "revision": "576a7701617fc18e1968a178198b9f73",
+    "revision": "e319763e9e6103654a04a4f1b28ea37d",
     "url": "/cia-vis-colorpicker/index.html"
   }
 ];

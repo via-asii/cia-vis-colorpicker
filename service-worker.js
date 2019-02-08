@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/cia-vis-colorpicker/precache-manifest.ea389c78af4d34fa09a2d7e4d29527e2.js"
+  "/cia-vis-colorpicker/precache-manifest.d82b39872699b581d85575f5aa11e9bb.js"
 );
 
 workbox.clientsClaim();
