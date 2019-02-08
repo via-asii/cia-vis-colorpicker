@@ -35,8 +35,11 @@ const cat20list = [
 	"#9edae5"
 ]
 
-const cat20 = i => cat20list[i-1%20]
+const cat20 = i => cat20list[(i-1)%20]
 
+const cat12list = ['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f']
+
+const cat12 = i => cat12list[(i-1)%12]
 
 const catDivide = (categories) => {
 	const split = 359/categories;
@@ -48,4 +51,4 @@ const catDivide = (categories) => {
 	return (i) => colors[i]
 }
 
-export {perc2color, cat20, catDivide};
+export {perc2color, cat20, cat12, catDivide};

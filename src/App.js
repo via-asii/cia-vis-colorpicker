@@ -14,7 +14,7 @@ import {
   interpolateSpectral
 } from 'd3';
 import {color, hex} from 'd3-color'
-import { perc2color, cat20, catDivide } from './customScales';
+import { perc2color, cat12, cat20, catDivide } from './customScales';
 import './App.css';
 import toastr from 'toastr';
 import './Toastr.css';
@@ -167,6 +167,13 @@ class App extends Component {
               <div className="flex f-center scale">
                 {iterArray.map(i => <div style={{height: '70px', width: '100px', backgroundColor: cat10Scale(i)}}>
                   <p onClick={()=>{this.copyToClipboard(cat10Scale(i))}} >{cat10Scale(i)}</p>
+                </div>)}
+              </div>
+            
+              <p>Category 12</p>
+              <div className="flex f-center scale">
+                {iterArray.map(i => <div style={{height: '70px', width: '100px', backgroundColor: cat12(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(cat12(i))}} >{cat12(i)}</p>
                 </div>)}
               </div>
               
