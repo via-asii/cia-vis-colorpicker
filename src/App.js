@@ -8,10 +8,13 @@ import {
   interpolateViridis, 
   interpolateHcl,
   interpolateBrBG,
-  interpolatePRGn
+  interpolatePRGn,
+  interpolatePiYG,
+  interpolatePuOr,
+  interpolateSpectral
 } from 'd3';
 import {color, hex} from 'd3-color'
-import { perc2color } from './customScales';
+import { perc2color, cat20, catDivide } from './customScales';
 import './App.css';
 import toastr from 'toastr';
 import './Toastr.css';
@@ -39,20 +42,32 @@ class App extends Component {
     const cat10Scale = scaleOrdinal(schemeCategory10);
 
     const infernoScale = scaleSequential(interpolateInferno)
-    .domain([1, this.state.nColors])
+      .domain([1, this.state.nColors])
     
     const brbgScale = scaleSequential(interpolateBrBG)
-    .domain([1, this.state.nColors])
+      .domain([1, this.state.nColors])
 
     const prgnScale = scaleSequential(interpolatePRGn)
-    .domain([1, this.state.nColors])
+      .domain([1, this.state.nColors])
+
+    const piygScale = scaleSequential(interpolatePiYG)
+      .domain([1, this.state.nColors])
+
+    const puorScale = scaleSequential(interpolatePuOr)
+      .domain([1, this.state.nColors])
 
     const viridiscolorScale = scaleSequential(interpolateViridis)
-    .domain([1, this.state.nColors])
+      .domain([1, this.state.nColors])
+
+    const spectralScale = scaleSequential(interpolateSpectral)
+      .domain([1, this.state.nColors])
+      
 
     const diyColor = scaleLinear().domain([1,this.state.nColors])
       .interpolate(interpolateHcl)
       .range([this.state.diyScale0, this.state.diyScale1]);
+
+    const catDiv = catDivide(this.state.nColors)
 
     const iterArray = [];
     for (var i = 1; i <= this.state.nColors; i++) {
@@ -92,6 +107,20 @@ class App extends Component {
                   <p onClick={()=>{this.copyToClipboard(infernoScale(i))}} >{infernoScale(i)}</p>
                 </div>)}
               </div> 
+
+
+              <div className="">
+                <p>Pick your own colors:</p>
+                <div className="scale flex f-center">
+                  <input type="color" id="html5colorpicker" onChange={(e)=> {this.setState({diyScale0: e.target.value}); } } value={this.state.diyScale0} />
+                    <div className="flex">
+                      {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: diyColor(i)}}>
+                        <p onClick={()=>{this.copyToClipboard(color(diyColor(i)).hex())}} >{color(diyColor(i)).hex()}</p>
+                      </div>)}
+                    </div>
+                  <input type="color" id="html5colorpicker" onChange={(e)=> {this.setState({diyScale1: e.target.value}); } } value={this.state.diyScale1} />
+                </div>
+              </div>  
               
             </div>
           </div>
@@ -111,18 +140,23 @@ class App extends Component {
                 </div>)}
               </div>
 
-              <div className="">
-                <p>Pick your own colors:</p>
-                <div className="scale flex f-center">
-                  <input type="color" id="html5colorpicker" onChange={(e)=> {this.setState({diyScale0: e.target.value}); } } value={this.state.diyScale0} />
-                    <div className="flex">
-                      {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: diyColor(i)}}>
-                        <p onClick={()=>{this.copyToClipboard(color(diyColor(i)).hex())}} >{color(diyColor(i)).hex()}</p>
-                      </div>)}
-                    </div>
-                  <input type="color" id="html5colorpicker" onChange={(e)=> {this.setState({diyScale1: e.target.value}); } } value={this.state.diyScale1} />
-                </div>
-              </div>  
+              <div className="flex f-center scale">
+                {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: piygScale(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(color(piygScale(i)).hex())}} >{color(piygScale(i)).hex()}</p>
+                </div>)}
+              </div>
+
+              <div className="flex f-center scale">
+                {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: puorScale(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(color(puorScale(i)).hex())}} >{color(puorScale(i)).hex()}</p>
+                </div>)}
+              </div>
+
+              <div className="flex f-center scale">
+                {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: spectralScale(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(color(spectralScale(i)).hex())}} >{color(spectralScale(i)).hex()}</p>
+                </div>)}
+              </div>
 
             </div>
           </div>
@@ -135,6 +169,21 @@ class App extends Component {
                   <p onClick={()=>{this.copyToClipboard(cat10Scale(i))}} >{cat10Scale(i)}</p>
                 </div>)}
               </div>
+              
+              <p>Category 20</p>
+              <div className="flex f-center scale">
+                {iterArray.map(i => <div style={{height: '70px', width: '100px', backgroundColor: cat20(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(cat20(i))}} >{cat20(i)}</p>
+                </div>)}
+              </div>
+
+              <p>Category Split</p>
+              <div className="flex f-center scale">
+                {iterArray.map(i => <div style={{height: '70px', width: '100px', backgroundColor: catDiv(i)}}>
+                  <p onClick={()=>{this.copyToClipboard(catDiv(i))}} >{color(catDiv(i)).hex()}</p>
+                </div>)}
+              </div>
+
             </div>
           </div>
 
