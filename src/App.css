@@ -25,6 +25,9 @@
 .flex {
   display: flex
 }
+.f-center {
+  justify-content: center;
+}
 
 .scale {
   margin: 20px 0;
