@@ -92,7 +92,7 @@ class App extends Component {
 
               <div className="flex f-center scale">
                 {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: perc2color(100-(100/iterArray.length)*i)}}>
-                  <p onClick={()=>{this.copyToClipboard(perc2color(i))}} >{perc2color(i)}</p>
+                  <p onClick={()=>{this.copyToClipboard(perc2color(100-(100/iterArray.length)*i))}} >{perc2color(100-(100/iterArray.length)*i)}</p>
                 </div>)}
               </div> 
 
@@ -130,7 +130,7 @@ class App extends Component {
               
               <div className="flex f-center scale">
                 {iterArray.map((i) => <div style={{height: '70px', width: '100px', backgroundColor: brbgScale(i)}}>
-                  <p onClick={()=>{this.copyToClipboard(brbgScale(i))}} >{color(brbgScale(i)).hex()}</p>
+                  <p onClick={()=>{this.copyToClipboard(color(brbgScale(i)).hex())}} >{color(brbgScale(i)).hex()}</p>
                 </div>)}
               </div>
 
@@ -187,7 +187,7 @@ class App extends Component {
               <p>Category Split</p>
               <div className="flex f-center scale">
                 {iterArray.map(i => <div style={{height: '70px', width: '100px', backgroundColor: catDiv(i)}}>
-                  <p onClick={()=>{this.copyToClipboard(catDiv(i))}} >{color(catDiv(i)).hex()}</p>
+                  <p onClick={()=>{this.copyToClipboard(color(catDiv(i)).hex())}} >{color(catDiv(i)).hex()}</p>
                 </div>)}
               </div>
 
